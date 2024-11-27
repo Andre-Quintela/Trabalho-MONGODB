@@ -13,7 +13,8 @@ Este projeto visa a implementação de funções em Python para acessar e consul
 ## 📺 Video do projeto:
 [Assista o vídeo no YouTube](https://youtu.be/--7w4i6YaE4)
 
-https://github.com/user-attachments/assets/913778d1-fccc-41fe-97f3-337659406758
+https://github.com/user-attachments/assets/0c483a17-6927-49f9-9789-2db30a45f99e
+
 
 
 ## 🚀 Tecnologias Utilizadas
