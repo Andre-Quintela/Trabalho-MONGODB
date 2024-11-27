@@ -1,3 +1,4 @@
+from decimal import InvalidOperation
 from pymongo import MongoClient
 
 class Alunos:
@@ -5,17 +6,26 @@ class Alunos:
         self.id = id
         self.nome = nome
         self.idade = idade
-        self.disciplinas = disciplinas
+        self.disciplinas = disciplinas if isinstance(disciplinas, list) else [disciplinas]
         self.serie = serie
 
     def __str__(self):
         return f'Nome: {self.nome} - Idade: {self.idade}'   
     
     client = MongoClient('localhost', 27017)
-    db = client['alunos']
+    db = client['escola']
 
     def salvarAluno(self):
         alunos = self.db.alunos
+        disciplinas_collection = self.db.disciplinas
+
+        # Validar disciplinas
+        disciplinas_existentes = [d['nome'] for d in disciplinas_collection.find()]
+        for disciplina in self.disciplinas:
+            if disciplina not in disciplinas_existentes:
+                raise InvalidOperation(f"A disciplina '{disciplina}' não existe na coleção de disciplinas.")
+
+        # Inserir aluno após validação
         aluno = {
             'id': self.id,
             'nome': self.nome,

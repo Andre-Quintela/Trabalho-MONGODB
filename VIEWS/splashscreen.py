@@ -1,22 +1,15 @@
 from pymongo import MongoClient
 
 def contarRegistros():
+    # Conectando ao banco de dados 'escola'
     client = MongoClient('localhost', 27017)
-    db = client['disciplinas']
-    disciplinas = db.disciplinas
-    totalDisciplinas = disciplinas.count_documents({})
+    db = client['escola']
     
-    db = client['alunos']
-    alunos = db.alunos
-    totalAlunos = alunos.count_documents({})
-    
-    db = client['notas']
-    notas = db.notas
-    totalNotas = notas.count_documents({})
-    
-    db = client['professores']
-    professores = db.professores
-    totalProfessores = professores.count_documents({})
+    # Contando os registros nas diferentes collections dentro da database 'escola'
+    totalDisciplinas = db.disciplinas.count_documents({})
+    totalAlunos = db.alunos.count_documents({})
+    totalNotas = db.notas.count_documents({})
+    totalProfessores = db.professores.count_documents({})
     
     return totalAlunos, totalDisciplinas, totalNotas, totalProfessores
 

@@ -17,18 +17,17 @@ def professor():
             id = input('ID: ')
             nome = input('Nome: ')
             idade = input('Idade: ')
-            disciplinas = input('Disciplinas: ')
             
-            professor = Professores(id, nome, idade, disciplinas)
+            professor = Professores(id, nome, idade)
             professor.salvarProfessor()
 
         elif opcao == '2':
-            professor = Professores('', '', '', '')
+            professor = Professores('', '', '')
             professor.listarProfessores()
         
         elif opcao == '3':
             id = input('ID: ')
-            professor = Professores('', '', '', '')
+            professor = Professores('', '', '')
             professor.buscarProfessor(id)
 
         elif opcao == '4':
@@ -37,12 +36,12 @@ def professor():
             idade = input('Idade: ')
             disciplinas = input('Disciplinas: ')
             
-            professor = Professores('', '', '', '')
-            professor.atualizarProfessor(id, nome, idade, disciplinas)
+            professor = Professores('', '', '')
+            professor.atualizarProfessor(id, nome, idade)
         
         elif opcao == '5':
             id = input('ID: ')
-            professor = Professores('', '', '', '')
+            professor = Professores('', '', '')
             professor.deletarProfessor(id)
 
         elif opcao == '0':
