@@ -2,7 +2,7 @@ from CONTROLLERS.AlunosController import aluno
 from CONTROLLERS.DisciplinasController import disciplina
 from CONTROLLERS.NotasController import nota
 from CONTROLLERS.ProfessoresController import professor
-from VIEWS.relatorios import relatorio_alunos_por_disciplina, relatorio_notas_por_disciplina
+from VIEWS.relatorios import relatorio_media_de_notas_dos_alunos_por_disciplina, relatorio_numero_de_alunos_por_disciplina
 
 def menu():
     while True:
@@ -25,15 +25,15 @@ def menu():
             nota()
         elif opcao == '5':
             print("Relatórios")
-            print("1. Notas por Disciplina")
-            print("2. Alunos por Disciplina")
+            print("1. Número de alunos por disciplina")
+            print("2. Média de notas dos alunos por disciplina")
 
             opcao_relatorio = input("Escolha uma opção: ")
 
             if opcao_relatorio == '1':
-                relatorio_notas_por_disciplina()
+                relatorio_numero_de_alunos_por_disciplina()
 
             if opcao_relatorio == '2':
-                relatorio_alunos_por_disciplina()                
+                relatorio_media_de_notas_dos_alunos_por_disciplina()               
         elif opcao == '0':
             break
