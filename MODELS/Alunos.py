@@ -34,3 +34,11 @@ class Alunos:
         alunos = self.db.alunos
         aluno = alunos.find_one({'id': id})
         print(aluno)
+
+    def atualizarAluno(self, id, nome, idade, disciplinas, serie):
+        alunos = self.db.alunos
+        alunos.update_one({'id': id}, {'$set': {'nome': nome, 'idade': idade, 'disciplinas': disciplinas, 'serie': serie}})  
+        
+    def deletarAluno(self, id):
+        alunos = self.db.alunos
+        alunos.delete_one({'id': id})
